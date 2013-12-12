@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/gonuts/logger"
 )
@@ -13,7 +14,8 @@ var g_out = flag.String("o", "hscript.py", "path to hscript.py file to generate"
 
 func init() {
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+		bin := filepath.Base(os.Args[0])
+		fmt.Fprintf(os.Stderr, "Usage of %s:\n", bin)
 		fmt.Fprintf(
 			os.Stderr,
 			`$ %s [options] path/to/lcgcmt.txt
@@ -23,7 +25,7 @@ ex:
 
 options:
 `,
-			os.Args[0], os.Args[0],
+			bin, bin,
 		)
 		flag.PrintDefaults()
 	}
