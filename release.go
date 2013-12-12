@@ -106,7 +106,7 @@ func (rel *Release) isLcgAppPkg(pkg *Package) bool {
 }
 
 func locateLcgExtAsset(version string) (io.ReadCloser, error) {
-	dir, err := gas.Abs("github.com/atlas-org/scripts/hwaf-gen-lcgcmt")
+	dir, err := gas.Abs("github.com/hwaf/hwaf-gen-lcgcmt")
 	if err != nil {
 		return nil, err
 	}
