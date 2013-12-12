@@ -9,7 +9,7 @@ import (
 	"github.com/gonuts/logger"
 )
 
-var msg = logger.New("lcgcmt")
+var msg = logger.New("gen-lcgcmt")
 var g_out = flag.String("o", "hscript.py", "path to hscript.py file to generate")
 var g_debug = flag.Bool("v", false, "enable debug output")
 var g_verbose = flag.Bool("vv", false, "enable verbose output")
