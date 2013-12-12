@@ -11,6 +11,8 @@ import (
 
 var msg = logger.New("lcgcmt")
 var g_out = flag.String("o", "hscript.py", "path to hscript.py file to generate")
+var g_debug = flag.Bool("v", false, "enable debug output")
+var g_verbose = flag.Bool("vv", false, "enable verbose output")
 
 func init() {
 	flag.Usage = func() {
@@ -41,6 +43,19 @@ func handle_err(err error) {
 
 func main() {
 	flag.Parse()
+
+	if *g_debug {
+		msg.SetLevel(logger.DEBUG)
+	}
+	if *g_verbose {
+		msg.SetLevel(logger.VERBOSE)
+	}
+
+	if flag.NArg() != 1 {
+		flag.Usage()
+		os.Exit(1)
+	}
+
 	fname := flag.Arg(0)
 
 	f, err := os.Open(fname)
