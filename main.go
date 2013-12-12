@@ -52,6 +52,7 @@ func main() {
 	}
 
 	if flag.NArg() != 1 {
+		msg.Errorf("need a path to the file to inspect\n\n")
 		flag.Usage()
 		os.Exit(1)
 	}
